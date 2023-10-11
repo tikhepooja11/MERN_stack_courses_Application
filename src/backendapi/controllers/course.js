@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const courseModel = require("../models/course");
-const responseTime = require("response-time");
 const course = require("../models/course");
 
 const createCourse = (request, response) => {

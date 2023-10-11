@@ -2,7 +2,7 @@ const { default: mongoose } = require("mongoose");
 const db = require("./models/db");
 const cors = require("cors"); // Import the cors package
 const express = require("express");
-const employeeRoute = require("./routes/employee");
+// const employeeRoute = require("./routes/employee");
 const courseRoute = require("./routes/course");
 
 // const responseTime = require('./middleware/responseTime')
@@ -57,7 +57,7 @@ function responseTime(req, res, next) {
   next();
 }
 
-router.use("/employeeRoute", employeeRoute);
+// router.use("/employeeRoute", employeeRoute);
 router.use("/courseRoute", courseRoute);
 
 // router.use(function(req, res) {

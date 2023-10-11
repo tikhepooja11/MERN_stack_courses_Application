@@ -13,10 +13,11 @@ const Addcourse = () => {
   const handleForm = (event) => {
     postDataToServer(course);
     setCourse({ id: "", title: "", description: "" }); //  clear the fields
-    // event.preventDefault();
+    event.preventDefault();
   };
 
   const postDataToServer = (data) => {
+    console.log("inside posting data ");
     axios.post(`${base_url}/courseRoute/createCourse`, data).then(
       (response) => {
         toast.success(
@@ -37,7 +38,7 @@ const Addcourse = () => {
       <h1 className="text-center my-3">Fill course details</h1>
       <Form onSubmit={handleForm}>
         <FormGroup>
-          <Label htmlFor="courseId">Course Id</Label>
+          <Label>Course Id</Label>
           <Input
             type="text" //number
             id="courseId"
@@ -50,7 +51,7 @@ const Addcourse = () => {
         </FormGroup>
 
         <FormGroup>
-          <label htmlFor="title">Course Title</label>
+          <Label>Course Title</Label>
           <Input
             type="text"
             id="courseTitle"
@@ -63,7 +64,7 @@ const Addcourse = () => {
         </FormGroup>
 
         <FormGroup>
-          <label htmlFor="description">Course Description</label>
+          <Label>Course Description</Label>
           <Input
             type="textarea"
             id="description"

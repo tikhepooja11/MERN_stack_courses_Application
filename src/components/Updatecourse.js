@@ -7,9 +7,8 @@ import { Form, Label, FormGroup, Input, Container, Button } from "reactstrap";
 
 const Updatecourse = () => {
   const { id } = useParams();
-  const [course, setCourse] = useState({});
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   //    Fetch the previous data based on course id provided
   useEffect(() => {
@@ -24,8 +23,20 @@ const Updatecourse = () => {
   }, []);
 
   const handleUpdatedForm = (event) => {
-    console.log("inside handleUpdatedForm");
-    console.log(id);
+    console.log("inside handleUpdatedForm :" + event);
+    const updatedCourse = {
+      title,
+      description,
+    };
+    updateDataToServer(updatedCourse);
+    setTitle("");
+    setDescription(""); //  clear the fields
+    event.preventDefault();
+  };
+
+  const updateDataToServer = (data) => {
+    console.log("inside updateDataToServer :" + data);
+    const { title, description } = data;
     axios
       .patch(`${base_url}/courseRoute/updateCourse/${id}`, {
         title,
@@ -38,6 +49,8 @@ const Updatecourse = () => {
             { position: "bottom-center" }
           );
           console.log(response.data);
+          setTitle("");
+          setDescription("");
         },
         (error) => {
           console.log("error");
@@ -55,7 +68,7 @@ const Updatecourse = () => {
         <h1 className="text-center my-3">Update course details here </h1>
         <Form onSubmit={handleUpdatedForm}>
           <FormGroup>
-            <label htmlFor="title">Course Title</label>
+            <Label>Course Title</Label>
             <Input
               type="text"
               id="courseTitle"
@@ -68,7 +81,7 @@ const Updatecourse = () => {
           </FormGroup>
 
           <FormGroup>
-            <label htmlFor="description">Course Description</label>
+            <Label>Course Description</Label>
             <Input
               type="textarea"
               id="description"

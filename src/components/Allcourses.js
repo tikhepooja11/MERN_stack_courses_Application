@@ -10,10 +10,8 @@ const Allcourses = () => {
   }, []);
 
   const getAllCoursesFromServer = () => {
-    console.log("inside getAllCoursesFromServer()");
     axios.get(`${base_url}/courseRoute/getAllCourses`).then(
       (response) => {
-        //success
         console.log("success " + response.data);
         toast.success("courses has been loaded from server", {
           position: "bottom-right",
@@ -21,7 +19,6 @@ const Allcourses = () => {
         setCourses(response.data);
       },
       (error) => {
-        //error
         console.log("error" + error);
         toast.error("something went wrong", {
           position: "bottom-center",

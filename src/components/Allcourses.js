@@ -3,14 +3,15 @@ import Course from "./course";
 import { toast } from "react-toastify";
 import base_url from "../backendapi/bootapi";
 import axios from "axios";
+import useOnlineStatus from "../utilities/useOnlineStatus";
 
 const Allcourses = () => {
   useEffect(() => {
     document.title = "Display courses || courses app";
   }, []);
 
-  const getAllCoursesFromServer = () => {
-    axios.get(`${base_url}/courseRoute/getAllCourses`).then(
+  const getAllCoursesFromServer = async () => {
+    await axios.get(`${base_url}/courseRoute/getAllCourses`).then(
       (response) => {
         console.log("success " + response.data);
         toast.success("courses has been loaded from server", {
@@ -38,6 +39,15 @@ const Allcourses = () => {
     setCourses(courses.filter((c) => c.title !== title));
   };
 
+  //  check online status of user
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h4 className="text-center mt-10">
+        Looks like you're offline !! Please check your internet connection
+      </h4>
+    );
+  }
   return (
     <div>
       <h1>Allcourses </h1>

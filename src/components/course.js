@@ -50,9 +50,13 @@ const Course = ({ course, update }) => {
             <Button color="warning ms-2" href={`/update-course/${course.id}`}>
               Update
             </Button>
+            <Button className="ms-2" href={`/getcoursebyid/${course.id}`}>
+              Start learning
+            </Button>
           </Container>
         </CardBody>
       </Card>
+      <br></br>
     </div>
   );
 };

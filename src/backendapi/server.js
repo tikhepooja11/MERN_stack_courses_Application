@@ -1,4 +1,3 @@
-const { default: mongoose } = require("mongoose");
 const db = require("./models/db");
 const cors = require("cors"); // Import the cors package
 const express = require("express");

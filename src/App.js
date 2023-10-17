@@ -8,7 +8,9 @@ import Addcourse from "./components/Addcourse";
 import Updatecourse from "./components/Updatecourse";
 import Menus from "./components/Leftmenubar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import ContactUs from "./components/contactus";
+import ErrorPage from "./components/errorpage";
+import DisplayCourse from "./components/DisplayCourse";
 function App() {
   // const showToastMessage = () => {
   //   toast("displaying toast message", {
@@ -44,6 +46,9 @@ function App() {
                   element={<Updatecourse />}
                   exact
                 />
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/getcoursebyid/:id" element={<DisplayCourse />} />
+                <Route path="*" element={<ErrorPage />} />
               </Routes>
             </Col>
           </Row>

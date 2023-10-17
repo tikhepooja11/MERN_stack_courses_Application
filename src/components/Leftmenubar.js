@@ -1,6 +1,8 @@
 import React from "react";
 import { ListGroup } from "reactstrap";
 import { NavLink } from "react-router-dom";
+
+//  we are going to use Link/Navlink instead of anchor tag to redirect to another page to avoid page refresh
 const Menus = () => {
   return (
     <div>
@@ -36,10 +38,10 @@ const Menus = () => {
         <NavLink
           className="list-group-item list-group-item-action"
           tag="a"
-          to="/contacts"
+          to="/contactus"
           action
         >
-          Contacts
+          Contact Us
         </NavLink>
 
         <NavLink

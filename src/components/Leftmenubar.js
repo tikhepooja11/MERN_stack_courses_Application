@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 //  we are going to use Link/Navlink instead of anchor tag to redirect to another page to avoid page refresh
 const Menus = () => {
   return (
-    <div>
+    <div className="mt-3">
       <ListGroup>
         <NavLink
           className="list-group-item list-group-item-action"
@@ -47,7 +47,7 @@ const Menus = () => {
         <NavLink
           className="list-group-item list-group-item-action"
           tag="a"
-          to="/about"
+          to="/aboutus"
           action
         >
           About

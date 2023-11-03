@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContactUs from "./components/contactus";
 import ErrorPage from "./components/errorpage";
 import DisplayCourse from "./components/DisplayCourse";
+import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs";
 function App() {
   // const showToastMessage = () => {
   //   toast("displaying toast message", {
@@ -19,7 +21,7 @@ function App() {
   // };
 
   return (
-    <div>
+    <div className="bg-green-100">
       {/* <Header />
 
       <Home />
@@ -30,7 +32,7 @@ function App() {
       <ToastContainer />
 
       <Router>
-        <Container>
+        <Container className="bg-pink-200">
           <Header />
           <Row>
             <Col md={4}>
@@ -47,12 +49,14 @@ function App() {
                   exact
                 />
                 <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/getcoursebyid/:id" element={<DisplayCourse />} />
                 <Route path="*" element={<ErrorPage />} />
               </Routes>
             </Col>
           </Row>
         </Container>
+        <Footer />
       </Router>
     </div>
   );

@@ -13,6 +13,8 @@ import {
 import base_url from "../backendapi/bootapi";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItems, removeItems } from "../utilities/Redux-store/cartSlice";
 
 const Course = ({ course, update }) => {
   const deleteCourse = (title) => {
@@ -31,9 +33,14 @@ const Course = ({ course, update }) => {
     );
   };
 
+  //  once clicked on add-to-cart dispatch an action using useDispatch hook
+  const dispatch = useDispatch();
+
   const handleAddToCartAction = (course) => {
-    console.log("inside handleAddToCartAction :" + course);
+    console.log("inside handleAddToCartAction :");
     console.log(course);
+    // dispatch(removeItems("JSX"));
+    dispatch(addItems(course));
   };
 
   return (

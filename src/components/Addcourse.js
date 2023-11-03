@@ -35,10 +35,17 @@ const Addcourse = () => {
   };
   return (
     <Fragment>
-      <h1 className="text-center my-3">Fill course details</h1>
-      <Form onSubmit={handleForm}>
-        <FormGroup>
-          <Label>Course Id</Label>
+      <h1 className="text-center text-2xl font-bold mb-4 my-3">
+        Fill course details
+      </h1>
+      <Form
+        onSubmit={handleForm}
+        className="max-w-xl mx-auto p-6 rounded-md shadow-md bg-sky-200"
+      >
+        <FormGroup className="mb-4">
+          <Label className="block text-gray-700 text-sm font-bold mb-2">
+            Course Id
+          </Label>
           <Input
             type="text" //number
             id="courseId"
@@ -47,11 +54,14 @@ const Addcourse = () => {
             onChange={(event) => {
               setCourse({ ...course, id: event.target.value });
             }}
+            className="border rounded-md px-3 py-2 w-full"
           ></Input>
         </FormGroup>
 
-        <FormGroup>
-          <Label>Course Title</Label>
+        <FormGroup className="mb-4">
+          <Label className="block text-gray-700 text-sm font-bold mb-2">
+            Course Title
+          </Label>
           <Input
             type="text"
             id="courseTitle"
@@ -60,11 +70,14 @@ const Addcourse = () => {
             onChange={(event) => {
               setCourse({ ...course, title: event.target.value });
             }}
+            className="border rounded-md px-3 py-2 w-full"
           ></Input>
         </FormGroup>
 
-        <FormGroup>
-          <Label>Course Description</Label>
+        <FormGroup className="mb-4">
+          <Label className="block text-gray-700 text-sm font-bold mb-2">
+            Course Description
+          </Label>
           <Input
             type="textarea"
             id="description"
@@ -74,6 +87,7 @@ const Addcourse = () => {
             onChange={(event) => {
               setCourse({ ...course, description: event.target.value });
             }}
+            className="border rounded-md px-3 py-2 w-full"
           ></Input>
         </FormGroup>
 

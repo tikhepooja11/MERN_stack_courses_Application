@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Course from "./course";
+import Course, { freeLabelCourseComponent } from "./course";
 import { toast } from "react-toastify";
 import base_url from "../backendapi/bootapi";
 import axios from "axios";
 import useOnlineStatus from "../utilities/useOnlineStatus";
+import { Container } from "reactstrap";
 
 const Allcourses = () => {
+  const [courses, setCourses] = useState([]);
+
+  //  importing higher order component
+  const FreeLabelledCourse = freeLabelCourseComponent(Course);
+
   useEffect(() => {
     document.title = "Display courses || courses app";
   }, []);
@@ -33,8 +39,6 @@ const Allcourses = () => {
     getAllCoursesFromServer();
   }, []);
 
-  const [courses, setCourses] = useState([]);
-
   const updateCourses = (title) => {
     setCourses(courses.filter((c) => c.title !== title));
   };
@@ -48,15 +52,28 @@ const Allcourses = () => {
       </h4>
     );
   }
+
   return (
     <div>
-      <h1>Allcourses </h1>
+      <h3 className="mt-3 text-center justify-center">
+        Get Certified, Get Ahead with Our Programs{" "}
+      </h3>
       <p>List of all courses are as follows</p>
-      {courses.length > 0
-        ? courses.map((item) => (
-            <Course key={item.title} course={item} update={updateCourses} />
-          ))
-        : "No courses available"}
+      <Container className="  mt-5  bg-sky-200">
+        {courses.length > 0
+          ? courses.map((item) =>
+              item.isFree ? (
+                <FreeLabelledCourse
+                  key={item.title}
+                  course={item}
+                  update={updateCourses}
+                />
+              ) : (
+                <Course key={item.title} course={item} update={updateCourses} />
+              )
+            )
+          : "No courses available"}
+      </Container>
     </div>
   );
 };

@@ -1,26 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, CardBody } from "reactstrap";
+import UserContextData from "../utilities/UserContextData";
 import useOnlineStatus from "../utilities/useOnlineStatus";
 
 function Header() {
+  const { loggedInUserName } = useContext(UserContextData);
   const onlineStatus = useOnlineStatus();
+  console.log(loggedInUserName);
   return (
     <div>
-      <Card className="my-2 bg-warning">
-        <CardBody className="bg-warning">
+      <Card className="my-2">
+        <CardBody className="bg-yellow-500 bg-opacity-100 shadow-xl">
           <h1 className="text-center my-2">Welcome to Courses Application</h1>
-          <div
-            class="online-status"
-            style={{
-              position: "fixed",
-              top: "60px",
-              right: "10%",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
+          <div className="top-14 text-right">
             <h5>Online Status : {onlineStatus ? "✅" : "🔴"}</h5>
           </div>
+          <h6>LoggedIn User : {loggedInUserName}</h6>
         </CardBody>
       </Card>
     </div>

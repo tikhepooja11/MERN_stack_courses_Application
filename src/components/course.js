@@ -7,6 +7,8 @@ import {
   Button,
   Container,
   CardBody,
+  Row,
+  Col,
 } from "reactstrap";
 import base_url from "../backendapi/bootapi";
 import { toast } from "react-toastify";
@@ -29,36 +31,71 @@ const Course = ({ course, update }) => {
     );
   };
 
+  const handleAddToCartAction = (course) => {
+    console.log("inside handleAddToCartAction :" + course);
+    console.log(course);
+  };
+
   return (
-    <div>
-      <Card className="text-center">
-        <CardBody>
-          <CardTitle className="font-weight-bold">
-            {course.title} Course
-          </CardTitle>
-          {/* <img alt="Card cap" width="25%" src="https://picsum.photos/318/180" /> */}
-          <CardText>{course.description}</CardText>
-          <Container className="text-center mt-2">
-            <Button
-              color="danger"
-              onClick={() => {
-                deleteCourse(course.title);
-              }}
-            >
-              Delete
-            </Button>
-            <Button color="warning ms-2" href={`/update-course/${course.id}`}>
-              Update
-            </Button>
-            <Button className="ms-2" href={`/getcoursebyid/${course.id}`}>
-              Start learning
-            </Button>
-          </Container>
-        </CardBody>
-      </Card>
-      <br></br>
-    </div>
+    // <Container className=" flex flex-wrap  mt-5  bg-orange-400">
+    <Card className=" m-4 bg-sky-100 text-center justify-center mx-auto rounded-lg overflow-hidden shadow-lg  hover:border-black  hover:cursor-pointer max-w-screen-sm ">
+      <CardBody className="">
+        <CardTitle className="font-weight-bold text-xl font-bold mb-2">
+          {course.title} Course
+        </CardTitle>
+        <img
+          // src="https://mindqsystems.com/wp-content/uploads/2019/08/Core-Java-Training.jpg"
+          src={course.img}
+          alt="Card Image"
+          className="max-w-md rounded-lg ml-20 mr-5 h-32 object-cover"
+        />
+
+        <CardText>{course.description}</CardText>
+        <Container className="text-center mt-2">
+          <Button
+            color="danger"
+            onClick={() => {
+              deleteCourse(course.title);
+            }}
+          >
+            Delete
+          </Button>
+          <Button color="warning ms-2" href={`/update-course/${course.id}`}>
+            Update
+          </Button>
+          <Button
+            color="primary"
+            className="ms-2"
+            href={`/getcoursebyid/${course.id}`}
+          >
+            Start learning
+          </Button>
+          <Button
+            className="ms-2 bg-green-200 "
+            onClick={() => handleAddToCartAction(course)}
+          >
+            Add to Cart
+          </Button>
+        </Container>
+      </CardBody>
+    </Card>
   );
+};
+
+//  higher order course component - a function which will enhance the basic component & returns it.
+// that new component is arrow function with inside returns some jsx in it.
+// passing props to it so that all the properties it. key, course, updatecourse fun will be passed as it is.
+export const freeLabelCourseComponent = (Course) => {
+  return (props) => {
+    return (
+      <div>
+        <label className=" absolute bg-red-500 text-white p-2 rounded-lg text-center">
+          Free course
+        </label>
+        <Course {...props} />
+      </div>
+    );
+  };
 };
 
 export default Course;

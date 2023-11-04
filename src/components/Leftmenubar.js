@@ -52,6 +52,15 @@ const Menus = () => {
         <NavLink
           className="list-group-item list-group-item-action"
           tag="a"
+          to="/placement-facility"
+          action
+        >
+          Placement Facility
+        </NavLink>
+
+        <NavLink
+          className="list-group-item list-group-item-action"
+          tag="a"
           to="/contactus"
           action
         >

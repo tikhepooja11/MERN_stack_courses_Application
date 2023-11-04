@@ -13,9 +13,12 @@ import ErrorPage from "./components/errorpage";
 import DisplayCourse from "./components/DisplayCourse";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
+import { lazy, Suspense } from "react";
 import { Provider } from "react-redux";
 import appStore from "./utilities/Redux-store/appStore";
 import MyCart from "./components/MyCart";
+const PlacementApportunity = lazy(() => import("./components/Placements/Home"));
+
 function App() {
   // const showToastMessage = () => {
   //   toast("displaying toast message", {
@@ -60,6 +63,14 @@ function App() {
                   />
                   <Route path="*" element={<ErrorPage />} />
                   <Route path="/my-cart" element={<MyCart />} />
+                  <Route
+                    path="/placement-facility"
+                    element={
+                      <Suspense>
+                        <PlacementApportunity />
+                      </Suspense>
+                    }
+                  />
                 </Routes>
               </Col>
             </Row>

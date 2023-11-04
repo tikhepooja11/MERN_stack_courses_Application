@@ -55,11 +55,11 @@ const Allcourses = () => {
 
   return (
     <div>
-      <h3 className="mt-3 text-center justify-center">
-        Get Certified, Get Ahead with Our Programs{" "}
-      </h3>
-      <p>List of all courses are as follows</p>
-      <Container className="  mt-5  bg-sky-200">
+      <Container className="  mt-2  p-2 bg-sky-200">
+        <h3 className="mt-3 text-center justify-center">
+          Get Certified, Get Ahead with Our Programs{" "}
+        </h3>
+        <p className="text-center">List of all courses are as follows</p>
         {courses.length > 0
           ? courses.map((item) =>
               item.isFree ? (

@@ -31,7 +31,7 @@ router.listen(PORT, () => {
 router.use(
   cors({
     origin: [
-      "http://localhost:3001",
+      // "http://localhost:3001",
       "https://reactjs-frontend-courses.onrender.com",
     ],
   })

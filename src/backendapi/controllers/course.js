@@ -31,9 +31,7 @@ const getCourseById = (req, res) => {
   return courseModel
     .findById({ _id: courseId })
     .then((course) => res.send(course))
-    .catch((error) =>
-      res.status(404).send(error).json({ message: "course id not found" })
-    );
+    .catch((error) => res.status(404).json({ message: "course id not found" }));
 };
 
 const updateCourse = (req, res) => {

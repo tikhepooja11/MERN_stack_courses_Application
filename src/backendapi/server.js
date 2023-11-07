@@ -6,7 +6,7 @@ const courseRoute = require("./routes/course");
 
 const router = express(); //ask for router to express
 
-//now connect to mongoDB
+//now connect to mongoDB ...
 mongoose
   .connect(process.env.MONGO_URL, {
     retryWrites: true,

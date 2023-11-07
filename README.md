@@ -30,7 +30,7 @@ Snapshots ->
 ![Screenshot (28)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/309ed72c-8e07-4f36-8bb8-bb032ddfa799)
 ![Screenshot (27)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/8031298e-731a-41ad-9b07-ec7875c9f1bc)
 ![Screenshot (26)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/0b60ec92-ddfb-47f8-b150-84ad381869aa)
-
+![Screenshot (29)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/c9cce4ae-bda4-4c46-ab7c-be6faa8b617c)
 
 
 

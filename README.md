@@ -34,12 +34,28 @@ Snapshots ->
 
 
 
-Deployed MERN app on RENDER ->
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+**Deployed** MERN app on RENDER ->
 Backend Hosted URL   ->    https://nodejs-backend-courses-app.onrender.com/
 
 ![Screenshot (35)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/b9e9735f-fd0f-4f44-a21d-97eff817889f)
 
+![Screenshot (38)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/b35dce70-1be0-483a-b258-1a1269598748)
 
+![Screenshot (39)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/81da551d-0c72-4614-80ea-b279fec70c99)
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
 
 Frontend Hosted URL  ->    https://reactjs-frontend-courses.onrender.com/
 

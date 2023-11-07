@@ -29,7 +29,7 @@ const getCourseById = (req, res) => {
   console.log(`inside getCourseById()`);
   const courseId = req.params.courseId;
   return courseModel
-    .findById({ _id: courseId })
+    .findOne({ id: courseId })
     .then((course) => res.send(course))
     .catch((error) => res.status(404).json({ message: "course id not found" }));
 };

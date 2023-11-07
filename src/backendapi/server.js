@@ -28,7 +28,14 @@ router.listen(PORT, () => {
 });
 
 // Allow middleware requests from 'http://localhost:3001'
-router.use(cors({ origin: "http://localhost:3001" }));
+router.use(
+  cors({
+    origin: [
+      "http://localhost:3001",
+      "https://reactjs-frontend-courses.onrender.com",
+    ],
+  })
+);
 
 router.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3001");

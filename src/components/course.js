@@ -9,14 +9,17 @@ import {
   CardBody,
   Row,
   Col,
+  CardSubtitle,
 } from "reactstrap";
 import base_url from "../backendapi/bootapi";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItems, removeItems } from "../utilities/Redux-store/cartSlice";
+import StarRating from "./StarRating";
 
 const Course = ({ course, update }) => {
+  const { ratings } = course;
   const deleteCourse = (title) => {
     console.log("course title    :   " + title);
     axios.delete(`${base_url}/courseRoute/deleteCourse/${title}`).then(
@@ -43,18 +46,24 @@ const Course = ({ course, update }) => {
     dispatch(addItems(course));
   };
 
+  // const starRatings = useStarRatings(4);
+
   return (
     // <Container className=" flex flex-wrap  mt-5  bg-orange-400">
     <Card className=" m-4 bg-sky-100 text-center justify-center mx-auto rounded-lg overflow-hidden shadow-lg  hover:border-black  hover:cursor-pointer max-w-screen-sm ">
-      <CardBody className="">
-        <CardTitle className="font-weight-bold text-xl font-bold mb-2">
+      <CardBody className="bg-black rounded shadow p-4 text-white">
+        <CardTitle className="ml-5 font-weight-bold text-xl font-bold mb-2">
           {course.title} Course
         </CardTitle>
+        <CardSubtitle className="text-right">
+          {<StarRating ratings={course.ratings} />}
+        </CardSubtitle>
+
         <img
           // src="https://mindqsystems.com/wp-content/uploads/2019/08/Core-Java-Training.jpg"
           src={course.img}
           alt="Card Image"
-          className="max-w-md rounded-lg ml-20 mr-5 h-32 object-cover"
+          className="max-w-md rounded-lg ml-20 h-32 object-cover"
         />
 
         <CardText>{course.description}</CardText>

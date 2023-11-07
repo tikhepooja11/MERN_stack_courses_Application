@@ -1,12 +1,31 @@
-const db = require("./models/db");
+require("dotenv").config();
 const cors = require("cors"); // Import the cors package
 const express = require("express");
-// const employeeRoute = require("./routes/employee");
+const mongoose = require("mongoose");
 const courseRoute = require("./routes/course");
 
-// const responseTime = require('./middleware/responseTime')
-
 const router = express(); //ask for router to express
+
+//now connect to mongoDB
+mongoose
+  .connect(process.env.MONGO_URL, {
+    retryWrites: true,
+    w: "majority",
+  })
+  .then(() => {
+    console.log(`connected to mongoDB dataBase`);
+  })
+  .catch((error) => {
+    console.log(`Unable to connect to DB`);
+    console.log(error);
+  });
+
+const PORT = process.env.PORT || 3030;
+console.log(PORT);
+
+router.listen(PORT, () => {
+  console.log(`server started on port : ${PORT}`);
+});
 
 // Allow middleware requests from 'http://localhost:3001'
 router.use(cors({ origin: "http://localhost:3001" }));
@@ -18,20 +37,10 @@ router.use((req, res, next) => {
   next();
 });
 
-router.listen(3000, () => {
-  console.log("Express server started on port : 3000");
-});
 router.use(express.urlencoded({ extended: true }));
 router.use(express.json());
 
 router.use(responseTime);
-
-// router.use(function(req, res, next) {
-//     req.start = Date.now();
-//     console.log("start time: "+req.start)
-
-//     next();
-//  });
 
 router.get("/", function (req, res) {
   // res.send('api working');
@@ -56,11 +65,4 @@ function responseTime(req, res, next) {
   next();
 }
 
-// router.use("/employeeRoute", employeeRoute);
 router.use("/courseRoute", courseRoute);
-
-// router.use(function(req, res) {
-//     var time = Date.now() - req.start;
-//     console.log(time)
-//     next()
-// });

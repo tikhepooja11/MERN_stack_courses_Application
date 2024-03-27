@@ -10,18 +10,18 @@ import {
 const Footer = () => {
   return (
     <footer className="my-auto  bg-gray-900 text-white py-4">
-      <div class="flex justify-center items-center">
-        <ul class="flex space-x-4">
-          <li class="flex items-center">
-            <span class="h-3 w-3 bg-white rounded-full mr-2"></span> Terms &
+      <div className="flex justify-center items-center">
+        <ul className="flex space-x-4">
+          <li className="flex items-center">
+            <span className="h-3 w-3 bg-white rounded-full mr-2"></span> Terms &
             Conditions
           </li>
-          <li class="flex items-center">
-            <span class="h-3 w-3 bg-white rounded-full mr-2"></span> Privacy
+          <li className="flex items-center">
+            <span className="h-3 w-3 bg-white rounded-full mr-2"></span> Privacy
             Policy
           </li>
-          <li class="flex items-center">
-            <span class="h-3 w-3 bg-white rounded-full mr-2"></span> Refund
+          <li className="flex items-center">
+            <span className="h-3 w-3 bg-white rounded-full mr-2"></span> Refund
             Policy
           </li>
         </ul>

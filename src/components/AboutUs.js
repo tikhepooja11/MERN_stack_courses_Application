@@ -1,8 +1,15 @@
 import React from "react";
 import { CardSubtitle, Container } from "reactstrap";
 import { Card, CardTitle, CardText, Button, CardBody } from "reactstrap";
+import MapWithMarkers from "../utilities/about us/MapWithMarkers";
 
 const AboutUs = () => {
+  const locations = [
+    { name: 'New York Office', coordinates: [40.7128, -74.0060] },
+    { name: 'London Office', coordinates: [51.5074, -0.1278] },
+    // Add more locations as needed
+];
+
   return (
     <div>
       <span className="mt-4">Our Online Bootcamp</span>
@@ -46,6 +53,12 @@ const AboutUs = () => {
           </CardBody>
         </Card>
       </Container>
+
+      <div>
+      <h1 className="m-3 p-3 font-bold ">Our Global Offices</h1>
+      <MapWithMarkers locations={locations}/>
+      </div>
+
     </div>
   );
 };

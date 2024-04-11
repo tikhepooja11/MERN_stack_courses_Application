@@ -5,10 +5,10 @@ import MapWithMarkers from "../utilities/about us/MapWithMarkers";
 
 const AboutUs = () => {
   const locations = [
-    { name: 'New York Office', coordinates: [40.7128, -74.0060] },
-    { name: 'London Office', coordinates: [51.5074, -0.1278] },
+    { name: "New York Office", coordinates: [40.7128, -74.006] },
+    { name: "London Office", coordinates: [51.5074, -0.1278] },
     // Add more locations as needed
-];
+  ];
 
   return (
     <div>
@@ -54,11 +54,10 @@ const AboutUs = () => {
         </Card>
       </Container>
 
-      <div>
+      {/* <div>
       <h1 className="m-3 p-3 font-bold ">Our Global Offices</h1>
       <MapWithMarkers locations={locations}/>
-      </div>
-
+      </div> */}
     </div>
   );
 };

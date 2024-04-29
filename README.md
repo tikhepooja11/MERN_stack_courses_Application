@@ -24,6 +24,7 @@
 
    Immer Library -> Redux makes use of Immer library which gives the newly modified state by differenciating bet old state - current state
 
+   Survey JS -> Made the use of survey js forms library to create and add validations to contact us form.
 
 Snapshots ->
 ![Screenshot (23)](https://github.com/tikhepooja11/MERN_stack_courses_Application/assets/47672660/748d1b71-5aee-4e71-921f-b54bb3465a18)
